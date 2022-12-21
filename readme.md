@@ -18,7 +18,7 @@ https://ku.qingnian8.com/dataApi/news/newslist.php
 # 下面是我的学习笔记
 
 # 一、业务逻辑记录
-最开始其实
+
 ## 1. 触底刷新数据
 这个挺有意思，`onReachBottom`这个函数是当页面到底部时调用的。
 ## 2. 加载数据时的loading提示
