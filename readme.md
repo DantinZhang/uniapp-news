@@ -20,26 +20,26 @@ https://ku.qingnian8.com/dataApi/news/detail.php
 
 ## 一、业务逻辑记录
 ### 1. 触底刷新数据
-这个挺有意思，`onReachBottom`这个函数是uniapp支持的一个生命周期函数，当页面到底部时调用的。
+这个挺有意思，`onReachBottom`这个函数是uniapp支持的一个生命周期函数，当页面到底部时调用的。  
 触底刷新第一是要请求下一页数据，并往数组中添加下一页的数据；第二是要给用户提示。
 ### 2. 加载数据时的loading提示
-这个就是上面触底刷新数据所说的第二点：要给用户提示，增加用户体验。
-1.首先要在尾部加一个提示，只有在有数据的时候才显示
+这个就是上面触底刷新数据所说的第二点：要给用户提示，增加用户体验。  
+1.首先要在尾部加一个提示，只有在有数据的时候才显示  
 ```html
 <view class="loading" v-if="newsArr.length">
 	<view v-show="loading === 1">数据加载中......</view>
 	<view v-show="loading === 2">没有更多数据了~~</view>
 </view>
 ```
-2.data中设置loading为0（0默认不显示 1表示加载中 2表示没有数据）
-3.当使用触底函数时，把loading变成1，然后发请求
-4.发请求返回结果做个判断，如果没数据了就把loading变成2
+2.data中设置loading为0（0默认不显示 1表示加载中 2表示没有数据）  
+3.当使用触底函数时，把loading变成1，然后发请求  
+4.发请求返回结果做个判断，如果没数据了就把loading变成2  
 ```javascript
 if(res.data.length === 0) {
 	this.loading = 2;  //如果下拉请求不到数据了，就提示
 }
 ```
-5.当然，最好在触底函数中首行做个判断，如果没数据了就不发请求了
+5.当然，最好在触底函数中首行做个判断，如果没数据了就不发请求了  
 ```javascript
 if(this.loading === 2) return;  //这行如果不写，每次触底都会提示加载并发请求，不太好
 ```
@@ -55,12 +55,12 @@ if(this.loading === 2) return;  //这行如果不写，每次触底都会提示�
 （1）项目目录下:git init初始化  
 （2）git remote add 别名 http://...（项目链接）  
 （3）git add .    
-（4）git commit -m '提交备注' 
+（4）git commit -m '提交备注'  
 （5）git push 别名 分支名 
 ### git的一些常用命令
 使用这个命令可以让某个文件脱离版本控制（修改时不跟随提交）。
 ```javascript
 git rm -r --cached unpackage
 ```
-使用`git status`可以查看当前git追踪状态 
+使用`git status`可以查看当前git追踪状态   
 使用`git log`可以查看提交日志
