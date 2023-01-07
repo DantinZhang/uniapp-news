@@ -13,4 +13,9 @@
 	view {
 		box-sizing: border-box;
 	}
+	
+	/* 去掉H5端导航的滚动条 */
+	::-webkit-scrollbar{
+		display: none;
+	}
 </style>

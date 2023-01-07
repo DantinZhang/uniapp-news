@@ -40,7 +40,6 @@
 				navArr: [],
 				newsArr: [],
 				currentPage:1,  //当前页码
-				navId:50,   //当前请求的类目
 				loading:0   //0默认不显示 1表示加载中  2表示没有数据
 			}
 		},
@@ -50,27 +49,25 @@
 		},
 		//2.触底加载更多数据
 		onReachBottom() {
-			if(this.loading === 2) {
-				return; //如果触底时已经没有数据了，就不再发请求了，一直显示没数据
-			}
+			//如果触底时已经没有数据了，就不再发请求了，一直显示没数据
+			if(this.loading === 2) return;  //这行如果不写，每次触底都会提示加载并发请求，不太好
 			this.currentPage++;
 			this.loading = 1;  //触底时显示数据加载中
 			this.getNewsData();
 		},
 		methods: {
-			//点击导航切换
-			changeIndex(index,cid) {
+			//点击导航切换，一定要清空上一次请求残留的更改信息，否则会有bug
+			changeIndex(index,navId) {
 				this.curIndex = index;
 				this.currentPage = 1;  //重置当前页数（其他类触底改变了该值）
 				this.newsArr = [];  //重置数组，否则点击切换会出现继续拼接的情况
-				this.navId = cid;  //拿到当前对应的数据id
 				this.loading = 0;  //切换时去掉数据加载中
-				this.getNewsData();  //请求对应的数据
+				this.getNewsData(navId);  //请求对应的数据
 			},
 			
 			//跳转到详情页
 			goDetail(item) {
-				console.log(item);
+				console.log('新闻详情数据',item);
 				uni.navigateTo({
 					url:`/pages/detail/detail?cid=${item.classid}&id=${item.id}`
 				})
@@ -80,20 +77,20 @@
 			getNavData() {
 				uni.request({
 					url:"https://ku.qingnian8.com/dataApi/news/navlist.php",
-					 success:res => {
-						 console.log(res.data);
-					 	this.navArr = res.data;
-					 }
+					success:res => {
+						console.log(res);
+						this.navArr = res.data;
+					}
 				})
 			},
 			
-			//1.2获取新闻列表数据，接收参数栏目id
-			getNewsData() {
+			//1.2获取新闻列表数据，接收参数栏目id，默认请求第一类
+			getNewsData(navId=50) {
 				uni.request({
 					url:"https://ku.qingnian8.com/dataApi/news/newslist.php",
 					//传参
 					data: {
-						cid:this.navId,
+						cid:navId, //拿着栏目id发请求
 						page:this.currentPage
 					},
 					success:res => {
@@ -116,8 +113,9 @@
 	.home {
 		.scrollNav {
 			position: fixed;
-			top: 0;
+			top: var(--window-top); /*h5端的操作*/
 			left: 0;
+			z-index: 99;
 			height: 100rpx;
 			line-height: 100rpx;
 			background-color: #F7F8FA;
@@ -126,7 +124,7 @@
 			.item {
 				display: inline-block;
 				font-size: 40rpx;
-				padding: 0 20rpx;
+				padding: 0 30rpx;
 				color: #333;
 				&.active {
 					 color: #31C27C;

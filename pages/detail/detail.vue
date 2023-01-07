@@ -6,8 +6,9 @@
 			<view class="time">发布日期：{{time}}</view>
 		</view>
 		<view class="content">
-			<!-- 识别标签格式的字符串rich-text -->
-			<rich-text :nodes="detailData.content"></rich-text>
+			<!-- 识别标签格式的字符串rich-text,当然v-html也可以 -->
+			<!-- <rich-text :nodes="detailData.content"></rich-text> -->
+			<view v-html="detailData.content"></view>
 		</view>
 	</view>
 </template>

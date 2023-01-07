@@ -1,3 +1,4 @@
+<!-- 在uniapp中，公共组件不需要注册引入，只要在components目录中，就可以直接写标签用 -->
 <template>
 	<view class="new">
 
@@ -29,9 +30,12 @@
 			console.log(this)
 		},
 		props: {
+			//这里接到的props可以修改，因为每个组件接收的值不一样，修改不会相互影响
 			item : {
 				type: Object,
 				default: function() {
+					//这里定义为函数，本质和data定义为函数是一样的
+					//其实我感觉这里根本不需要给默认值……可能是老师为了讲课吧
 					return {
 						title: "新闻默认标题",
 						author:"奥里给",
@@ -47,7 +51,12 @@
 				
 			};
 		},
-		
+		methods: {
+			ok() {
+				this.item.hits++;
+				console.log(this.item.hits)
+			}
+		}
 	}
 </script>
 
