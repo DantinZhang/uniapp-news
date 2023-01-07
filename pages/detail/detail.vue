@@ -83,5 +83,12 @@
 			display: flex;
 			justify-content: space-between;
 		}
+		
+		.content {
+			// H5端把所有img都自适应(小程序无效)
+			/deep/ img {
+				width: 100%;
+			}
+		}
 	}
 </style>
