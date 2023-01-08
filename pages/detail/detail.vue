@@ -51,7 +51,7 @@
 					success: res => {
 						console.log(res.data);
 						//解决小程序中的图片展示超出屏幕问题，使用正则替换
-						// res.data.content = res.data.content.replace(/img/gi,'<img style="max-width:100%"');
+						res.data.content = res.data.content.replace(/<img/gi,"<img style='max-width:100%'");
 						this.detailData = res.data;
 						
 						//跳转后更改顶部标题
