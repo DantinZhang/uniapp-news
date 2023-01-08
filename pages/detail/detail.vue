@@ -71,12 +71,10 @@
 				let addedIndex = this.historyArr.findIndex(el => {
 					return el.id === newsData.id;
 				})
-				if(addedIndex === -1) {
-					this.historyArr.unshift(item);
-				} else {
+				if(addedIndex !== -1) {
 					this.historyArr.splice(addedIndex, 1);
-					this.historyArr.unshift(item);
-				}
+				} 
+				this.historyArr.unshift(item); //精简一下代码
 				//放到本地存储中
 				uni.setStorageSync('historyArr', this.historyArr);
 			}
