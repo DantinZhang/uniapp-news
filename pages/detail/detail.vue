@@ -14,6 +14,7 @@
 </template>
 
 <script>
+	import {parseTime} from '../../utils/dateformat.js';
 	export default {
 		data() {
 			return {
@@ -23,15 +24,8 @@
 		},
 		computed: {
 			time() {
-				let date = new Date(this.detailData.posttime);
-				let Y = date.getFullYear() + '-';
-				let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-				let D = date.getDate() + ' ';
-				let h = date.getHours() + ':';
-				let m = date.getMinutes() + ':';
-				let s = date.getSeconds(); 
-				let time = Y+M+D+h+m+s;
-				return time;
+				//时间格式化一下
+				return parseTime(this.detailData.posttime);
 			}
 		},
 		onLoad(params) {
@@ -77,7 +71,7 @@
 		.info {
 			background-color: #F6F6F6;
 			padding: 20rpx;
-			font-size: 30rpx;
+			font-size: 28rpx;
 			margin: 40rpx 0;
 			color: #666;
 			display: flex;
