@@ -7,8 +7,8 @@
 		
 		<view class="content">
 			<News 
-			@click.native="goDetail" 
 			v-for="(history,index) in historyArr" 
+			@click.native="goDetail(history)" 
 			:key="index"
 			:item="history"
 			></News>
@@ -29,9 +29,9 @@
 			this.historyArr = uni.getStorageSync('historyArr');
 		},
 		methods: {
-			goDetail() {
+			goDetail(historyItem) {
 				uni.navigateTo({
-					url: "/pages/detail/detail"
+					url: `/pages/detail/detail?cid=${historyItem.classid}&id=${historyItem.id}`
 				})
 			}
 		}
