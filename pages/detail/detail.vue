@@ -67,7 +67,17 @@
 					picurl: newsData.picurl,
 					readtime: parseTime(Date.now()) //阅读过后就添加属性
 				}
-				this.historyArr.unshift(item);
+				//看一下是否已经添加过了，防止重复添加
+				let addedIndex = this.historyArr.findIndex(el => {
+					return el.id === newsData.id;
+				})
+				if(addedIndex === -1) {
+					this.historyArr.unshift(item);
+				} else {
+					this.historyArr.splice(addedIndex, 1);
+					this.historyArr.unshift(item);
+				}
+				//放到本地存储中
 				uni.setStorageSync('historyArr', this.historyArr);
 			}
 		}
