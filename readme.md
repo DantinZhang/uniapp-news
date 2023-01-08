@@ -43,7 +43,9 @@ if(res.data.length === 0) {
 ```javascript
 if(this.loading === 2) return;  //这行如果不写，每次触底都会提示加载并发请求，不太好
 ```
-### 3.uniapp中的一些其他注意点
+### 3. 浏览历史记录（uniapp中的本地存储）
+
+### 4.uniapp中的一些其他注意点
 （1）全局组件不需要注册引入，只要在components目录中，就可以直接写标签使用  
 （2）发请求使用uni.request({})，不用借助axios发请求，具体方式请看我的博客CSDN：DantinZhang  
 （3）组件使用原生事件需要@click.native = "fun"（这其实是vue的特性）  

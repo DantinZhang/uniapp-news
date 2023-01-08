@@ -6,7 +6,12 @@
 		</view>
 		
 		<view class="content">
-			<News @click.native="goDetail" v-for="(item,index) in 10" :key="index"></News>
+			<News 
+			@click.native="goDetail" 
+			v-for="(history,index) in historyArr" 
+			:key="index"
+			:item="history"
+			></News>
 		</view>
 	</view>
 </template>
@@ -15,8 +20,13 @@
 	export default {
 		data() {
 			return {
-				
+				historyArr: [],
 			};
+		},
+		//避免每次都要手动刷新，所以放到onShow里
+		onShow() {
+			//读取本地存储中的浏览历史记录
+			this.historyArr = uni.getStorageSync('historyArr');
 		},
 		methods: {
 			goDetail() {

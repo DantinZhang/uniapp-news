@@ -10,13 +10,13 @@
 		<view class="text">
 			<view class="title">{{item.title}}</view>
 			
-			<view class="detail" v-if="!item.posttime">
+			<view class="detail" v-if="!item.readtime">
 				<text>{{item.author}}</text>
 				<text style="margin-left:15rpx">{{item.hits}}浏览</text>
 			</view>
 			
-			<view class="detail" v-if="item.posttime">
-				<text>浏览时间：{{item.posttime}}</text>
+			<view class="detail" v-if="item.readtime">
+				<text>浏览时间：{{item.readtime}}</text>
 			</view>
 		</view>
 
@@ -41,7 +41,6 @@
 						author:"奥里给",
 						hits:668,
 						picurl:"https://t7.baidu.com/it/u=2621658848,3952322712&fm=193&f=GIF",
-						posttime: "2022-10-27 17:13:20"
 					}
 				}
 			}

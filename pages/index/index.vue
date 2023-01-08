@@ -33,6 +33,7 @@
 </template>
 
 <script>
+	import {parseTime} from '../../utils/dateformat.js';
 	export default {
 		data() {
 			return {
@@ -40,7 +41,7 @@
 				navArr: [],
 				newsArr: [],
 				currentPage:1,  //当前页码
-				loading:0   //0默认不显示 1表示加载中  2表示没有数据
+				loading:0,   //0默认不显示 1表示加载中  2表示没有数据
 			}
 		},
 		onLoad() {
@@ -70,7 +71,7 @@
 				console.log('新闻详情数据',item);
 				uni.navigateTo({
 					url:`/pages/detail/detail?cid=${item.classid}&id=${item.id}`
-				})
+				});
 			},
 			
 			//1.1获取导航列表数据

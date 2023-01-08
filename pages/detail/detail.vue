@@ -20,6 +20,7 @@
 			return {
 				paramsObj: {},
 				detailData: {},
+				historyArr: uni.getStorageSync('historyArr') || [], //用来存储浏览数据
 			}
 		},
 		computed: {
@@ -52,8 +53,22 @@
 						uni.setNavigationBarTitle({
 							title: res.data.title
 						})
+						
+						//请求到数据说明已经阅读过，就把相应的信息存到本地存储
+						this.saveHistory(res.data);
 					}
 				})
+			},
+			saveHistory(newsData) {
+				let item = {
+					id: newsData.id,
+					classid: newsData.classid,
+					title: newsData.title,
+					picurl: newsData.picurl,
+					readtime: parseTime(Date.now()) //阅读过后就添加属性
+				}
+				this.historyArr.unshift(item);
+				uni.setStorageSync('historyArr', this.historyArr);
 			}
 		}
 	}
