@@ -15,7 +15,7 @@
 		</view>
 		
 		<view class="nodata" v-if="!historyArr.length">
-			<image src="../../static/images/test.png" mode="aspectFill"></image>
+			<image src="../../static/images/test.png" mode="widthFix"></image>
 			<view style="padding-top:20rpx;">你tm还没浏览的干活</view>
 		</view>
 	</view>

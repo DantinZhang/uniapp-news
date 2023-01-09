@@ -1,6 +1,6 @@
 {
-    "name" : "zzy新闻",
-    "appid" : "",
+    "name" : "Dantin新闻",
+    "appid" : "__UNI__2706390",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -41,9 +41,13 @@
                 ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "dSYMs" : false
+            },
             /* SDK配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            }
         }
     },
     /* 快应用特有相关 */
@@ -68,5 +72,11 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "2"
+    "vueVersion" : "2",
+    "h5" : {
+        "title" : "zzy新闻",
+        "router" : {
+            "base" : "./"
+        }
+    }
 }

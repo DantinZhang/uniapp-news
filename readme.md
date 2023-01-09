@@ -88,8 +88,8 @@ data() {
 },
 //避免每次都要手动刷新，所以放到onShow里
 onShow() {
-	//读取本地存储中的浏览历史记录
-	this.historyArr = uni.getStorageSync('historyArr').slice(0,10) || []; //slice截取，最多显示10个
+	//读取本地存储中的浏览历史记录,如果没有值，返回的是空字符串
+	this.historyArr = uni.getStorageSync('historyArr').slice(0,10); //slice截取，最多显示10个
 },
 ```
 #### 3.点击时路由跳转传参就行了，这比较简单
@@ -105,7 +105,8 @@ goDetail(historyItem) {
 （2）发请求使用uni.request({})，不用借助axios发请求，具体方式请看我的博客CSDN：DantinZhang  
 （3）组件使用原生事件需要@click.native = "fun"（这其实是vue的特性）  
 （4）路由跳转传参使用uni.navigateTo({url:''})，传的参数在另一个页面使用onLoad(参数)接收  
-（4-1）路由跳转接收的参数是一个对象，里面包含了传过来的玩意儿们  
+（4-1）路由跳转接收的参数是一个对象，里面包含了传过来的玩意儿们   
+（5）app端打包选择云打包就行了，可以配置应用图标和应用名称，打包完就能安装到手机上了，美滋滋
 
 ## 二、关于git的使用
 ### git的基本使用：
