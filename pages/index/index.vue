@@ -22,7 +22,7 @@
 		<view class="nodata" v-if="!newsArr.length">
 			<!-- mode控制以宽度还是长度为基准 -->
 			<image src="../../static/images/test.png" mode="widthFix"></image>
-			<view>这里tmd没数据啊兄弟</view>
+			<view style="margin-top: 30rpx;">这里tmd没数据啊兄弟</view>
 		</view>
 		
 		<!-- 数据加载中的提示，增加用户体验 -->
