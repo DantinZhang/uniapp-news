@@ -47,6 +47,17 @@
             /* SDK配置 */
             "sdkConfigs" : {
                 "ad" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "C:/Users/12464/Desktop/app.png",
+                    "xhdpi" : "C:/Users/12464/Desktop/app.png",
+                    "xxhdpi" : "C:/Users/12464/Desktop/app.png",
+                    "xxxhdpi" : "C:/Users/12464/Desktop/app.png"
+                },
+                "ios" : {
+                    "appstore" : "C:/Users/12464/Desktop/app.png"
+                }
             }
         }
     },
