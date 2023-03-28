@@ -1,7 +1,7 @@
 # uniapp新闻页面
 
 ### 介绍
-uniapp练习小demo 
+uniapp练习小demo  
 练习：请求数据，下拉刷新，浏览记录，git的使用。  
 通过这个demo熟悉uniapp的常用api，以及git的一些基本操作。
 
