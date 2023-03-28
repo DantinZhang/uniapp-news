@@ -116,6 +116,10 @@ goDetail(historyItem) {
 （3）git add .    
 （4）git commit -m '提交备注'  
 （5）git push 别名 分支名 
+（6）git branch 分支名：创建分支
+（7）git checkout 分支名：切换分支
+（8）git branch：查看当前所有分支
+（9）切换到主分支，git merge 分支名，即可合并
 ### git的一些常用命令
 使用这个命令可以让某个文件脱离版本控制（修改时不跟随提交）。
 ```javascript
