@@ -6,7 +6,7 @@ uniapp练习小demo
 通过这个demo熟悉uniapp的常用api，以及git的一些基本操作。
 
 ### 我的开发环境
-HBuiderx + 微信开发者工具 + 手机模拟器。
+HBuiderx + 微信开发者工具 + 手机模拟器
 
 ### 接口
 #### 导航类目
