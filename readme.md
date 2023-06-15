@@ -16,7 +16,7 @@ https://ku.qingnian8.com/dataApi/news/newslist.php
 #### 新闻详情
 https://ku.qingnian8.com/dataApi/news/detail.php
 
-## 下面是我的学习笔记
+## 下面是我的学习笔记：
 
 ## 一、业务逻辑记录
 ### 1. 触底刷新数据
